@@ -15,7 +15,7 @@ const cutCall = document.querySelector('.cutcall');
 const screenShareButt = document.querySelector('.screenshare');
 const whiteboardButt = document.querySelector('.board-icon')
 
-//whiteboard js start
+
 const whiteboardCont = document.querySelector('.whiteboard-cont');
 const canvas = document.querySelector("#whiteboard");
 const ctx = canvas.getContext('2d');
@@ -41,7 +41,7 @@ function fitToContainer(canvas) {
 
 fitToContainer(canvas);
 
-//getCanvas call is under join room call
+
 socket.on('getCanvas', url => {
     let img = new Image();
     img.onload = start;
@@ -64,13 +64,13 @@ function setEraser() {
     drawsize = 10;
 }
 
-//might remove this
+
 function reportWindowSize() {
     fitToContainer(canvas);
 }
 
 window.onresize = reportWindowSize;
-//
+
 
 function clearBoard() {
     if (window.confirm('Are you sure you want to clear board? This cannot be undone')) {
@@ -136,7 +136,6 @@ socket.on('draw', (newX, newY, prevX, prevY, color, size) => {
     drawRemote(newX, newY, prevX, prevY);
 })
 
-//whiteboard js end
 
 let videoAllowed = 1;
 let audioAllowed = 1;
@@ -402,7 +401,6 @@ function handleVideoAnswer(answer, sid) {
     connections[sid].setRemoteDescription(ans);
 }
 
-//Thanks to (https://github.com/miroslavpejic85) for ScreenShare Code
 
 screenShareButt.addEventListener('click', () => {
     screenShareToggle();

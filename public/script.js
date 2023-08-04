@@ -61,7 +61,7 @@ peer.on("call", function (call) {
     getUserMedia(
         { video: true, audio: true },
         function (stream) {
-            call.answer(stream); // Answer the call with an A/V stream.
+            call.answer(stream);
             const video = document.createElement("video");
             call.on("stream", function (remoteStream) {
                 addVideoStream(video, remoteStream);
@@ -77,7 +77,6 @@ peer.on("open", (id) => {
     socket.emit("join-room", ROOM_ID, id);
 });
 
-// CHAT
 
 const connectToNewUser = (userId, streams) => {
     var call = peer.call(userId, streams);
